@@ -1,0 +1,27 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: taskschedule
+  namespace: istio-system
+  labels:
+    k8s-app: taskschedule
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: taskschedule
+  template:
+    metadata:
+      name: taskschedule
+      labels:
+        k8s-app: taskschedule
+    spec:
+      containers:
+        - name: taskschedule
+          image: 'harbor.dcos.guangzhou.unicom.local/zhyyprod/taskschedulepro:1.21.0'
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+
+
