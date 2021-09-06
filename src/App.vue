@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import PageHead from '@/components/common/PageHead'
 export default {
   name: 'App',
   components: {}

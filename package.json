@@ -1,5 +1,5 @@
 {
-  "name": "voiceVue",
+  "name": "voice-vue",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "yinlingyun <yinlingyun@bonc.com.cn>",
@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "echarts": "^4.9.0",
+    "less": "^4.1.1",
     "less-loader": "^4.1.0",
     "lib-flexible": "^0.3.2",
     "lodash": "^4.17.21",

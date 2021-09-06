@@ -7,8 +7,6 @@ import less from 'less'
 import store from './store/index.js'
 import Vuex from 'vuex'
 import 'lib-flexible/flexible'
-// import Search from 'vant/lib/Search'
-// import 'vant/lib/Search/style'
 
 Vue.use(Vuex)
 Vue.use(less)

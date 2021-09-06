@@ -11,7 +11,6 @@
       </Search>
       <div class="cityName" @click="cityPanelStateChange">
         <span>{{city}}</span>
-        <img src="../assets/searchDown.svg" alt="" />
       </div>
     </div>
     <BMap
