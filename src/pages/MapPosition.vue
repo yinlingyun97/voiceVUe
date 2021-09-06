@@ -74,7 +74,41 @@ export default {
     },
 
     voiceInit () {
-      this.voice = new VoiceCore()
+      let config = {
+        // 语音助手结束时调用方法
+        onClose: () => {
+        },
+        // 语音助手错误时输出错误方法
+        onError: (err) => {
+          console.info(err)
+        },
+        // 语音助手未找到匹配结果时调用方法
+        matchFailed: (e) => {
+          console.info(e) // { 'result':'识别结果','dsc':'无匹配数据'}
+        },
+        // 语音助手启动时调用方法
+        onStart: () => {
+        }
+      }
+      let textData = [
+        {
+          id: 'start',
+          text: '结束|关闭|注销',
+          success: (item, index) => {
+            console.info(item, index)
+          }
+        },
+        {
+          id: 'end',
+          text: '开始|启动|发动',
+          success: (item, index) => {
+            console.info(item, index)
+          }
+        }
+      ]
+      let appKey = 'f39a08ba'
+      let appID = '339a815726ed67d76c2e28ccfee008d8'
+      this.voice = new VoiceCore(config, textData, appKey, appID)
     }
   },
   watch: {}
