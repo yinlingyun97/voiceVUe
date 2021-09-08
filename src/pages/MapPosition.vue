@@ -8,12 +8,13 @@
         :scroll-wheel-zoom="true"
         @ready="bMapLoad"
     />
+    <VoiceAssistant />
   </div>
 </template>
 
 <script>
 import BMap from 'vue-baidu-map/components/map/Map'
-import {VoiceCore} from 'voice-core'
+import VoiceAssistant from '../components/VoiceAssistant'
 import mapPoint from '../assets/mapPoint.png'
 import mapUnPoint from '../assets/mapUnPoint.png'
 
@@ -40,11 +41,10 @@ export default {
       map: null // 地图容器
     }
   },
-  mounted () {
-    this.voiceInit()
-  },
+  mounted () {},
   components: {
-    BMap
+    BMap,
+    VoiceAssistant
   },
   methods: {
     // BMap加载触发寻找周边方法
@@ -71,44 +71,6 @@ export default {
       if (item) {
         this.selectLocation = item
       }
-    },
-
-    voiceInit () {
-      let config = {
-        // 语音助手结束时调用方法
-        onClose: () => {
-        },
-        // 语音助手错误时输出错误方法
-        onError: (err) => {
-          console.info(err)
-        },
-        // 语音助手未找到匹配结果时调用方法
-        matchFailed: (e) => {
-          console.info(e) // { 'result':'识别结果','dsc':'无匹配数据'}
-        },
-        // 语音助手启动时调用方法
-        onStart: () => {
-        }
-      }
-      let textData = [
-        {
-          id: 'start',
-          text: '结束|关闭|注销',
-          success: (item, index) => {
-            console.info(item, index)
-          }
-        },
-        {
-          id: 'end',
-          text: '开始|启动|发动',
-          success: (item, index) => {
-            console.info(item, index)
-          }
-        }
-      ]
-      let appKey = 'f39a08ba'
-      let appID = '339a815726ed67d76c2e28ccfee008d8'
-      this.voice = new VoiceCore(config, textData, appKey, appID)
     }
   },
   watch: {}
